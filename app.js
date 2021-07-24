@@ -8,7 +8,7 @@ const expressValidator = require('express-validator');
 require('dotenv').config();
 
 // Routes importing
-const userRoutes = require('./Routes/user');
+const authRoutes = require('./Routes/auth');
 
 // Database connection
 mongoose.connect(process.env.DATABASE, {
@@ -28,7 +28,7 @@ app.use(cookieParser());
 app.use(expressValidator());
 
 // routes middelware
-app.use('/api', userRoutes);
+app.use('/api', authRoutes);
 
 // Port configuration
 const port = process.env.PORT || 8080;
