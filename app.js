@@ -26,6 +26,7 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(expressValidator());
+
 // routes middelware
 app.use('/api', userRoutes);
 
