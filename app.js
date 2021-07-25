@@ -10,6 +10,7 @@ require('dotenv').config();
 // Routes importing
 const authRoutes = require('./Routes/auth');
 const userRoutes = require('./Routes/user');
+const categoryRoutes = require('./Routes/category');
 
 // Database connection
 mongoose.connect(process.env.DATABASE, {
@@ -31,6 +32,7 @@ app.use(expressValidator());
 // routes middelware
 app.use('/api', authRoutes);
 app.use('/api', userRoutes);
+app.use('/api', categoryRoutes);
 
 // Port configuration
 const port = process.env.PORT || 8080;
