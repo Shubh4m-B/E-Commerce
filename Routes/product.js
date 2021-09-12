@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { create, productById, read, remove, update, list, listRelated } = require('../Controllers/product');
+const { create, productById, read, remove, update, list, listRelated, listCategories } = require('../Controllers/product');
 const { requireSignin, isAuth, isAdmin } = require('../Controllers/auth');
 const { userById } = require('../Controllers/user');
 
@@ -11,6 +11,7 @@ router.delete('/product/:productId/:userId', requireSignin, isAuth, isAdmin, rem
 router.put('/product/:productId/:userId', requireSignin, isAuth, isAdmin, update);
 router.get('/products', list);
 router.get('/products/related/:productId', listRelated);
+router.get('/products/categories', listCategories)
 
 router.param('userId', userById);
 router.param("productId", productById);
